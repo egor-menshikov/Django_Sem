@@ -3,6 +3,8 @@ import random
 from django.http import HttpResponse
 import logging
 
+from sem_1_2_random_app.models import CoinToss
+
 logger = logging.getLogger(__name__)
 
 
@@ -16,6 +18,14 @@ def coin(request):
     else:
         logger.debug('Coin toss page accessed.')
         logger.info(f'Coin выброшено: {result}')
+        try:
+            toss = CoinToss(
+                result=result
+            )
+            toss.save()
+            logger.debug('Coin toss saved to database.')
+        except Exception as e:
+            logger.exception(f'Error saving to database {e}')
         return HttpResponse(result)
 
 
