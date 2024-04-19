@@ -1,3 +1,4 @@
+from django.db.models import QuerySet
 from django.shortcuts import render
 import random
 from django.http import HttpResponse
@@ -27,6 +28,12 @@ def coin(request):
         except Exception as e:
             logger.exception(f'Error saving to database {e}')
         return HttpResponse(result)
+
+
+def stats(request):
+    statistics = CoinToss.statistics()
+    response = '<br>'.join([f'{pk} {result}' for pk, result in sorted(statistics.items())])
+    return HttpResponse(response)
 
 
 def dice(request):
