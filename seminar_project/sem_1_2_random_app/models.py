@@ -17,13 +17,3 @@ class CoinToss(models.Model):
         for item in stats:
             stats_dict[item.pk] = item.result
         return stats_dict
-
-
-class Author(models.Model):
-    name = models.CharField(max_length=100)
-    surname = models.CharField(max_length=100)
-    email = models.EmailField()
-    bio = models.TextField()
-    birthday = models.DateField()
-
-    full_name = str(name) + ' ' + str(surname)
