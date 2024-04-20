@@ -9,11 +9,12 @@ class Author(models.Model):
     bio = models.TextField()
     birthday = models.DateField()
 
-    full_name = str(name) + ' ' + str(surname)
-
     def __str__(self):
-        return f'{self.full_name}'
+        return f'{self.name} {self.surname} {self.email} {self.bio} {self.birthday}'
 
+    @property
+    def full_name(self):
+        return f'{self.name} {self.surname}'
 
 # class Article(models.Model):
 #     title = models.CharField(max_length=200)

@@ -25,6 +25,4 @@ def index(request):
 
 def author_full_name(request):
     author = Author.objects.filter(pk=1).first()
-    fn = author.name
-    print(type(fn))
-    return HttpResponse(fn)
+    return HttpResponse(author.full_name)
