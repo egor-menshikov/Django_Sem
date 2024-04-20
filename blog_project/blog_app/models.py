@@ -1,6 +1,5 @@
 from django.db import models
 
-
 # Create your models here.
 class Author(models.Model):
     name = models.CharField(max_length=100)
@@ -27,4 +26,5 @@ class Article(models.Model):
     is_published = models.BooleanField(default=False)
 
     def __str__(self):
-        return f'{self.title} {self.author} {self.category} {self.release_date}'
+        return (f'{self.title} on {self.category} by {self.author.full_name}'
+                f' released at {self.release_date.date()}\n{self.content}')
