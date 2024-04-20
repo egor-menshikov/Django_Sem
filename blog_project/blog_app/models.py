@@ -16,11 +16,15 @@ class Author(models.Model):
     def full_name(self):
         return f'{self.name} {self.surname}'
 
-# class Article(models.Model):
-#     title = models.CharField(max_length=200)
-#     content = models.TextField()
-#     release_date = models.DateTimeField(auto_now_add=True)
-#     author = models.ForeignKey(Author, on_delete=models.CASCADE)
-#     category = models.CharField(max_length=100)
-#     views = models.BigIntegerField(default=0)
-#     is_published = models.BooleanField(default=False)
+
+class Article(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    release_date = models.DateTimeField(auto_now_add=True)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    category = models.CharField(max_length=100)
+    views = models.BigIntegerField(default=0)
+    is_published = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'{self.title} {self.author} {self.category} {self.release_date}'
