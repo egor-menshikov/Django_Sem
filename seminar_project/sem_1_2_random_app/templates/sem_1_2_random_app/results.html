@@ -1,0 +1,20 @@
+{% extends 'sem_1_2_random_app/random_base.html' %}
+
+{% block title %}
+Results
+{% endblock %}
+
+{% block content %}
+
+<h2>
+    Results of {{ game }}:
+</h2>
+
+<ol>
+    {% for item in results %}
+    <li>
+        {{ item }}
+    </li>
+    {% endfor %}
+</ol>
+{% endblock %}

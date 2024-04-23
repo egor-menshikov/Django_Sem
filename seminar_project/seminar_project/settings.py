@@ -25,8 +25,6 @@ SECRET_KEY = 'django-insecure-l0n0ey9xq1n4ynl)*$8!=2nb01+zrgjkeuaz^lywiq(fi@obhm
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
-    '192.168.1.67',
 ]
 
 # Application definition
